@@ -20,6 +20,7 @@
                                 <tr class="text-left text-xs font-bold  uppercase">
                                     <td scope="col" class="px-6 py-3">ID</td>
                                     <td scope="col" class="px-6 py-3">Nombre </td>
+                                    <td scope="col" class="px-6 py-3">Categoria </td>
                                     <td scope="col" class="px-6 py-3">Descripcion</td>
                                     <td scope="col" class="px-6 py-3">Foto</td>
                                     <td scope="col" class="px-6 py-3">Stock</td>
@@ -34,11 +35,14 @@
                                         <td class="px-6 py-4">
                                             <span
                                                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-500 text-white">
-                                                <%= data[i].id%>
+                                                <%= data[i].id_product%>
                                             </span>
                                         </td>
                                         <td class="px-6 py-4 dark:text-gray-400">
                                             <%= data[i].nombre%>
+                                        </td>
+                                        <td class="px-6 py-4 dark:text-gray-400">
+                                            <%= data[i].nombre_categoria%>
                                         </td>
                                         <td class="px-6 py-4 dark:text-gray-400">
                                             <%= data[i].descripcion%>
@@ -52,11 +56,11 @@
                                         <td class="px-6 py-4 dark:text-gray-400">$ <%= data[i].precio%>
                                         </td>
                                         <td class="px-3 py-2 text-right">
-                                            <a href="../producto/edit/<%=data[i].id%>"
+                                            <a href="../producto/edit/<%=data[i].id_product%>"
                                                 class="bg-green-600 text-white rounded px-2 py-2 hover:bg-green-400"
                                                 text-xs>
                                                 <i class="fa-solid fa-pen-to-square"></i>Edit</a>
-                                            <a href="../producto/delete/<%=data[i].id%>"
+                                            <a href="../producto/delete/<%=data[i].id_product%>"
                                                  class="bg-red-600 text-white rounded px-2 py-2 hover:bg-red-400"
                                                 text-xs>
                                                 <i class="fa-solid fa-trash"></i>delete</a>
@@ -66,7 +70,7 @@
                         </table>
                         <!-- if result is empty -->
                         <% if(!data.length) { %>
-                            <p class="text-center">No se encunetra categorias</p>
+                            <p class="text-center">No se encunetra producto</p>
                             <% } %>
 
                     </div>

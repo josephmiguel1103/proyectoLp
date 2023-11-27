@@ -19,29 +19,45 @@
                             <thead class="bg-indigo-500 text-white">
                                 <tr class="text-left text-xs font-bold  uppercase">
                                     <td scope="col" class="px-6 py-3">ID</td>
-                                    <td scope="col" class="px-6 py-3">Nombre categoría</td>
-                                    <td scope="col" class="px-6 py-3 text-center">Opciones</td>
+                                    <td scope="col" class="px-6 py-3">Nombre </td>
+                                    <td scope="col" class="px-6 py-3 text-center">apellido</td>
+                                    <td scope="col" class="px-6 py-3 text-center">gmail</td>
+                                    <td scope="col" class="px-6 py-3 text-center">celular</td>
+                                    <td scope="col" class="px-6 py-3 text-center">dni</td>
+                                    <td scope="col" class="px-6 py-3 text-center">opciones</td>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200 dark:text-gray-400">
-                                <% for(var i = dato.length - 1; i >= 0; i--) { %>
+                                <% for(var i = data.length - 1; i >= 0; i--) { %>
 
                                     <tr class="text-sm font-medium text-gray-900">
                                         <td class="px-6 py-4">
                                             <span
                                                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-500 text-white">
-                                                <%= dato[i].id_category%>
+                                                <%= data[i].id_customer%>
                                             </span>
                                         </td>
                                         <td class="px-6 py-4 dark:text-gray-400">
-                                            <%= dato[i].nombre%>
+                                            <%= data[i].nombres%>
+                                        </td>
+                                        <td class="px-6 py-4 dark:text-gray-400">
+                                            <%= data[i].apellido%>
+                                        </td>
+                                        <td class="px-6 py-4 dark:text-gray-400">
+                                            <%= data[i].gmail%>
+                                        </td>
+                                        <td class="px-6 py-4 dark:text-gray-400">
+                                            <%= data[i].celular%>
+                                        </td>
+                                        <td class="px-6 py-4 dark:text-gray-400">
+                                            <%= data[i].dni%>
                                         </td>
                                         <td class="px-6 py-4 text-right">
-                                            <a href="../categories/edit/<%=dato[i].id_category%>"
+                                            <a href="../cliente/edit/<%=data[i].id_customer%>"
                                                 class="bg-green-600 text-white rounded px-2 py-2 hover:bg-green-400"
                                                 text-xs>
                                                 <i class="fa-solid fa-pen-to-square"></i>Editar</a>
-                                            <a href="../categories/delete/<%=dato[i].id_category%>"
+                                            <a href="../cliente/delete/<%=data[i].id_customer%>"
                                                 onclick="return confirm('Are You sure?')"
                                                 class="bg-red-600 text-white rounded px-2 py-2 hover:bg-red-400"
                                                 text-xs>
@@ -51,7 +67,7 @@
                             </tbody>
                         </table>
                         <!-- if result is empty -->
-                        <% if(!dato.length) { %>
+                        <% if(!data.length) { %>
                             <p class="text-center">No se encunetra categorias</p>
                             <% } %>
 

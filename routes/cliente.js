@@ -5,13 +5,13 @@ var dbConn = require('../lib/db');
 /* listar. */
 router.get('/', function (req, res, next) {
 
-  dbConn.query('SELECT * FROM categorias ORDER BY id_category desc', function (err, rows) {
+  dbConn.query('SELECT * FROM cliente ORDER BY id_customer desc', function (err, rows) {
 
     if (err) {
       req.flash('error', err);
-      res.render('categories/index', { dato: '' });
+      res.render('cliente/index', { data: '' });
     } else {
-      res.render('categories/index', { dato: rows });
+      res.render('cliente/index', { data: rows });
     }   
   });
 }); 

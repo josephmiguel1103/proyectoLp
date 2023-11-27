@@ -4,7 +4,16 @@ var dbConn = require('../lib/db');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+  dbConn.query('SELECT * FROM productos ORDER BY id_product desc', function (err, rows) {
+
+    if (err) {
+      req.flash('error', err);
+      res.render('index', { data: '' });
+    } else {
+      res.render('index', { data: rows });
+    }
+  });
+
 });
 
 /* GET login page. */
@@ -17,11 +26,19 @@ router.get('/loginadmin', function (req, res, next) {
   res.render('loginadmin');
 });
 
+
+/* GET producto page. */
+router.get('/productos', function (req, res, next) {
+  res.render('productos');
+});
+
+
+
 /* post dashboard page. */
 router.post('/dashboard', function (req, res, next) {
   email = req.body.email;
   password = req.body.password;
-  dbConn.query("SELECT * FROM usuarios WHERE email='" + email + "'AND password='" + password + "'", function (err, rows) {
+  dbConn.query("SELECT * FROM usuario WHERE email='" + email + "'AND password='" + password + "'", function (err, rows) {
     console.log(rows);
     if (err) {
       req.flash('error', err);
